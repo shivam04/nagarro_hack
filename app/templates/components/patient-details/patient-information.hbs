@@ -1,0 +1,28 @@
+<select id="orangeForm-severity" class="form-control validate" onchange={{action "setSelectionRange" value="target.value"}}>
+						<option value="0">Select Time</option>
+                    	<option value="60">Last hour</option>
+                    	<option value="1440">Last Day</option>
+                    	<option value="10080">Last Week</option>
+                    	<option value="302400">Last Month</option>
+                    </select> 
+<button class="btn btn-success" {{action "showGraph"}}>Show Graph</button>
+
+<button class="btn btn-primary" {{action "showAnalysis"}}>Analysis Report</button>
+
+{{#if isVisited}}
+<button class="btn btn-disable" {{action "markVisit"}}>Mark Visit</button>
+{{else}}<button class="btn btn-warning" {{action "markVisit"}}>Mark Visit</button>{{/if}}
+
+<br><br><br>
+
+ <div id="heartRateContainer" style="height: 300px; width: 100%;"></div><br>
+
+ <div id="bloodPressureContainer" style="height: 300px; width: 100%;"></div><br>
+
+ <div id="temperatureContainer" style="height: 300px; width: 100%;"></div><br>
+
+ <div id="respirationRateContainer" style="height: 300px; width: 100%;"></div><br>
+
+ <div id="sugarLevelContainer" style="height: 300px; width: 100%;"></div>
+
+

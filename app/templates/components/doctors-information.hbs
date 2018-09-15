@@ -1,0 +1,56 @@
+<div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=name }}
+                    <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=email }}
+                    <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+                </div>
+
+                <div class="md-form mb-4">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    {{input type="password" class="form-control validate" value=password }}
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=age }}
+
+                    <label data-error="wrong" data-success="right" for="orangeForm-age">Age</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=sex }}
+
+                    <label data-error="wrong" data-success="right" for="orangeForm-sex">Sex</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=address }}
+
+                    <label data-error="wrong" data-success="right" for="orangeForm-address">Address</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=contact }}
+
+                    <label data-error="wrong" data-success="right" for="orangeForm-contact">Contact No.</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="date" class="form-control validate" value=joined_date }}
+
+                    <label data-error="wrong" data-success="right" for="orangeForm-joined_date">Join Date</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    {{input type="text" class="form-control validate" value=field }}
+                    <label data-error="wrong" data-success="right" for="orangeForm-field">Your Expertise</label>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-deep-orange" {{action 'signUp'}}>Sign up</button>
+        </div>
