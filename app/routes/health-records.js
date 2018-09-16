@@ -1,7 +1,13 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-	beforeModel(/* transition */) {
-    	//this.transitionTo('/health_records/disease_count'); // Implicitly aborts the on-going transition.
-  	}
+	model: function(){
+		var data = $.ajax({
+			type: "GET",
+			url: "http://34.199.49.88:3000/api/all_diseases",
+			async: false,
+		}).responseText;
+		console.log(data);
+		return JSON.parse(data).data;
+	}
 });
