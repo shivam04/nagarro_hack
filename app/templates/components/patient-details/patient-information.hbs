@@ -1,28 +1,133 @@
-<select id="orangeForm-severity" class="form-control validate" onchange={{action "setSelectionRange" value="target.value"}}>
+<style type="text/css">
+	#heartRateContainer,#bloodPressureContainer,#temperatureContainer,#respirationRateContainer,#sugarLevelContainer{
+		width:90%;
+		margin-left:5%;
+	}
+	button{
+		height: 50px;
+		width: 10%;
+		font-size: 25px;
+	}
+.slidecontainer {
+    width: 50%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('/assets/images/slider.png');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('/assets/images/slider.png');
+    cursor: pointer;
+}
+#dataTime{
+	width:50%;
+	margin-left:25%;
+}
+</style>
+<select id="dataTime" class="form-control validate" onchange={{action "setSelectionRange" value="target.value"}}>
 						<option value="0">Select Time</option>
                     	<option value="60">Last hour</option>
                     	<option value="1440">Last Day</option>
                     	<option value="10080">Last Week</option>
                     	<option value="302400">Last Month</option>
-                    </select> 
-<button class="btn btn-success" {{action "showGraph"}}>Show Graph</button>
+                    </select> <br>
+<button style="margin-left:35%" class="btn btn-success" {{action "showGraph"}}>Show Graph</button>
 
-<button class="btn btn-primary" {{action "showAnalysis"}}>Analysis Report</button>
 
-{{#if isVisited}}
+<button class="btn btn-primary" {{action "showAnalysis"}} data-toggle="modal" data-target="#centralModalSm">Readmission Probablity</button>
+
+{{#if isMarkVisit}}
 <button class="btn btn-disable" {{action "markVisit"}}>Mark Visit</button>
 {{else}}<button class="btn btn-warning" {{action "markVisit"}}>Mark Visit</button>{{/if}}
 
-<br><br><br>
+{{!-- <div class="slidecontainer">
+<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div> --}}
+<br><br>
+<div class="container">
+<table class="table table-dark table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Vital</th>
+        <th>Max</th>
+        <th>Min</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Heart Rate</td>
+        <td>{{dataRecord.[0]}}</td>
+        <td>{{dataRecord.[1]}}</td>
+      </tr>
+      <tr>
+        <td>Blood Temperature</td>
+        <td>{{dataRecord.[2]}}</td>
+        <td>{{dataRecord.[3]}}</td>
+      </tr>
+      <tr>
+        <td>Temperature</td>
+        <td>{{dataRecord.[4]}}</td>
+        <td>{{dataRecord.[5]}}</td>
+      </tr>
+      <tr>
+        <td>Respiration Rate</td>
+        <td>{{dataRecord.[6]}}</td>
+        <td>{{dataRecord.[7]}}</td>
+      </tr>
+      <tr>
+        <td>Sugar Level</td>
+        <td>{{dataRecord.[8]}}</td>
+        <td>{{dataRecord.[9]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <br><br>
 
- <div id="heartRateContainer" style="height: 300px; width: 100%;"></div><br>
+ <div id="heartRateContainer" style="height: 300px; "></div><br>
 
- <div id="bloodPressureContainer" style="height: 300px; width: 100%;"></div><br>
+ <div id="bloodPressureContainer" style="height: 300px; "></div><br>
 
- <div id="temperatureContainer" style="height: 300px; width: 100%;"></div><br>
+ <div id="temperatureContainer" style="height: 300px; "></div><br>
 
- <div id="respirationRateContainer" style="height: 300px; width: 100%;"></div><br>
+ <div id="respirationRateContainer" style="height: 300px; "></div><br>
 
- <div id="sugarLevelContainer" style="height: 300px; width: 100%;"></div>
+ <div id="sugarLevelContainer" style="height: 300px; "></div>
+{{small-modal title="Readmission Chance" information=inf}}
 
+<script>
+/*var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}*/
+</script>

@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('patients', function() {});
   //this.route('patient-details', {path: '/:patient_id'});
   this.route('patient_details',{path: '/patients/:pid/:time'});
+  this.route('health_records', function() {
+    this.route('disease_count');
+    this.route('city_count',{path: '/:disease'});
+  });
 });
 
 export default Router;
