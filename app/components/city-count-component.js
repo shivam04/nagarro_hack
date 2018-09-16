@@ -20,7 +20,7 @@ export default Component.extend({
 			type: "column",  
 			showInLegend: true, 
 			legendMarkerColor: "grey",
-			legendText: "City",
+			legendText: "Disease",
 			dataPoints: data_pnt
 		}]
 	});
